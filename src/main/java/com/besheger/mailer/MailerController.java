@@ -12,8 +12,10 @@ public class MailerController {
         return new MessageSSS();
     }
     @PostMapping("/em")
-    public String sendEamil(@RequestBody MessageSSS message){
+    public String sendEmail(@RequestBody MessageSSS message){
+        if(message.getApiKey().equals("kzdjhlxasguiBWYXE24679HJKSYXFE9283787D213221"))
         return EmailSender.emailNotification(message.title,message.sender,message.message,message.receiver);
+        return "Wrong API Key";
     }
 
 }
